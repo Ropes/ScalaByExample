@@ -4,8 +4,8 @@ import scala._
 
 object Iterites extends App{
 
-    def filter_predicate(wat: Array[Int]): Array[Int]= {
-        return wat.filter(p => p > 5)
+    def filter_predicate(wat: Array[Int])(predicate: Int => Boolean): Array[Int]= {
+        return wat.filter(predicate)
     }
 
     def quicksort(arr: Array[Int]): Array[Int] = {
@@ -22,9 +22,12 @@ object Iterites extends App{
     override def main(args: Array[String]){
         val wat: Array[Int] = Array(1, 4, 6, 3, 2, 10, 100)
         val hat = Array(5, 4, 1, 8, 90, 12)
+        val out = filter_predicate(wat)((p: Int) => p > 5)
+        /*
         println(s"Length: ${wat.length}")
         println(s"Array.. ${wat.mkString("\n")}\n")
         val out = quicksort(hat)
+        */
         println(out.mkString(" "))
     }
 
