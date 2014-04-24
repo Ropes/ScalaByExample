@@ -20,5 +20,15 @@ class TestIterites extends FunSuite {
         val out = filter_predicate(wat)(f)
         assert(out === Array(6,10,100))
     }
+    test("Test Quicksort"){
+        val a = Array(4,5,1)
+        val b = quicksort(a)
+        assert(b === Array(1,4,5))
+    }
+    test("Assert Equal"){
+        val a = Array(4,4,4)
+        val b = quicksort(a)
+        assert(b === a)
+    }
 }
     

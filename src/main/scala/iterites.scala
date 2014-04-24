@@ -23,11 +23,6 @@ object Iterites extends App{
         val wat: Array[Int] = Array(1, 4, 6, 3, 2, 10, 100)
         val hat = Array(5, 4, 1, 8, 90, 12)
         val out = filter_predicate(wat)((p: Int) => p > 5)
-        /*
-        println(s"Length: ${wat.length}")
-        println(s"Array.. ${wat.mkString("\n")}\n")
-        val out = quicksort(hat)
-        */
         println(out.mkString(" "))
     }
 
