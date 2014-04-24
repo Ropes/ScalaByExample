@@ -10,3 +10,7 @@ libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.1.3"
 
 libraryDependencies += "junit" % "junit" % "4.10" % "test"
 
+libraryDependencies +=
+    "com.typesafe.akka" %% "akka-actor" % "2.3.2"
+
+exportJars := true
