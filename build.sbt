@@ -1,4 +1,4 @@
-name := "Scala Examples"
+name := "ScalaExamples"
 
 version := "0.1"
 
