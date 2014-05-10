@@ -22,5 +22,11 @@ class TestPalindromes extends FunSuite {
     test("Recursive false list"){
         checkFalse.foreach((s: String) => assert(false == recursive(s)))
     }
+    test("Easy approach"){
+        checkTrue.foreach((s: String) => assert(dumb(s)))
+    }
+    test("Easy fail approach"){
+        checkFalse.foreach((s: String) => assert(false == dumb(s)))
+    }
 
 }

@@ -2,6 +2,8 @@ package com.joshroppo.ScalaExamples
 
 object Palindromes{
 
+    def dumb(str: String): Boolean = str == str.reverse
+
     def recursive(str: String): Boolean = {
         if(str.length <= 1){
             return true
