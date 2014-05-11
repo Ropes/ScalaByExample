@@ -2,6 +2,7 @@ package com.joshroppo.auction
 
 import scala._
 import akka.actor._
+import java.util.Date
 
 abstract class AuctionMessage
 case class Offer(bid: Int, client:Actor)    extends AuctionMessage
@@ -16,22 +17,23 @@ case class AuctionConcluded(seller: Actor, client: Actor)
 case object AuctionFailed                   extends AuctionReply
 case object AuctionOver                     extends AuctionReply
 
-class Auction(seller: Actor, minBid: Int, closing: Date) extends Actor{
+abstract class Auction(seller: Actor, minBid: Int, closing: Date) extends Actor{
     val timeToShutdown = 36000000
     val bidIncrement = 10
 
+    /*
     def act(){
         var maxBid = minBid - bidIncrement
         var maxBidder: Actor = null
         var running = true
         while(running){
-            receiveWithin((closing.getTime() - new Date().getTime()){
+            receiveWithin(closing.getTime() - new Date().getTime()){
                 case Offer(bid, client) =>
                     if(bid >= maxBid + bidIncrement){
                         if(maxBid >= minBid) maxBidder ! BeatenOffer(bid)
-                        maxBid = bid
-                        maxBidder = client
-                        client ! BestOffer
+                        maxBid = bid;
+                        maxBidder = client;
+                        client ! BestOffer;
                     } else {
                         client ! BeatenOffer(maxBid)
                     }
@@ -40,10 +42,10 @@ class Auction(seller: Actor, minBid: Int, closing: Date) extends Actor{
                 case TIMEOUT =>
                     if(maxBid >= minBid){
                         val reply = AuctionConcluded(seller, maxBider)
-                        maxBidder ! reply
-                        seller ! reply
+                        maxBidder ! reply;
+                        seller ! reply;
                     } else {
-                        seller ! AuctionFailed
+                        seller ! AuctionFailed;
                     }
                     receiveWithin(timeToShutdown){
                         case Offer(_, client) => client ! AuctionOver
@@ -52,4 +54,5 @@ class Auction(seller: Actor, minBid: Int, closing: Date) extends Actor{
             }
         }
     }
+    */
 }
