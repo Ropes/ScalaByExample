@@ -1,4 +1,4 @@
-package com.joshroppo.ScalaExamples
+package com.joshroppo.PubSub
 
 import akka.actor.{Actor, Props, ActorSystem}
 
