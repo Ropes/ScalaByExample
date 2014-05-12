@@ -1,4 +1,4 @@
-package com.joshroppo.learnakka
+package com.joshroppo.ScalaExamples
 
 import akka.actor.{Actor, Props, ActorSystem}
 
