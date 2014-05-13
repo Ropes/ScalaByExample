@@ -13,8 +13,8 @@ object LinkCheck{
                         val uri = new URI(payload)
                         EventStream.publish("Host", uri.getHost())
                     }catch{
-                        case e: MalformedURLException => println("Invalid URL: " + e)
-                        case e: Exception => println("Exception: " + e)
+                        case e: MalformedURLException => println("Invalid URL: " + e.toString)
+                        case e: Exception => println("Exception: " + e.toString)
                     }
                 case _ => 
                     println("Payload to URI must be String!")
