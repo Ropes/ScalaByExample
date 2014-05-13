@@ -36,4 +36,11 @@ class TestPalindromes extends FunSuite {
         checkFalse.foreach((s: String) => assert(false == enclosingIter(s)))
     }
 
+    test("Assert Mirrored Chars true"){
+        checkTrue.foreach((s: String) => assert(assertMirrorChars(s, 0)))
+    }
+    test("Assert Not Mirrored chars"){
+        checkFalse.foreach((s: String) => assert(assertMirrorChars(s, 0) == false))
+    }
+
 }
