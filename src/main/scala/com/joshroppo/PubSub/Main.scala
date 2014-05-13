@@ -7,14 +7,14 @@ object Main{
 
     def main(args: Array[String]){
         EventStream.subscribe(LinkCheck.onEvent, "LinkChecker")
-        EventStream.subscribe(Logger.onEvent, "loggerstream")
+        EventStream.subscribe(Logger.onEvent(ps), "loggerstream")
     }
 
-    def run {
+    def run { 
         EventStream.publish("URI", "https://www.google.com/watman")
         EventStream.publish("URI", "https://www.amazon.com/orders")
         stop
     }
-    def stop = Logger.stop()
+    def stop = Logger.stop(ps)
 
 }
