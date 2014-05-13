@@ -43,4 +43,7 @@ class TestPalindromes extends FunSuite {
         checkFalse.foreach((s: String) => assert(assertMirrorChars(s, 0) == false))
     }
 
+    test("Search string iteration"){
+        assert(largestPalindrome(sent) == "racecar")
+    }
 }
