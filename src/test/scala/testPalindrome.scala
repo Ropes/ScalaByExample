@@ -10,6 +10,7 @@ import Palindromes._
 class TestPalindromes extends FunSuite {
     val checkTrue = Set("racecar", "101", "hihih")
     val checkFalse = Set("racebuggy", "122", "hihii")
+    val sent = "The racecars drive at over 101 mph for 1001 minutes!"
     test("Check true recursive"){
         assert(recursive("racecar"))
     }
@@ -27,6 +28,12 @@ class TestPalindromes extends FunSuite {
     }
     test("Easy fail approach"){
         checkFalse.foreach((s: String) => assert(false == dumb(s)))
+    }
+    test("Enclosing iter true"){
+        checkTrue.foreach((s: String) => assert(enclosingIter(s)))
+    }
+    test("Enclosing iter false"){
+        checkFalse.foreach((s: String) => assert(false == enclosingIter(s)))
     }
 
 }
