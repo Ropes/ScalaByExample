@@ -10,7 +10,7 @@ import Palindromes._
 class TestPalindromes extends FunSuite {
     val checkTrue = Set("racecar", "101", "hihih")
     val checkFalse = Set("racebuggy", "122", "hihii", " at ")
-    val sent = "The racecars drive at over 101 mph for 1001 minutes!"
+    val sent = "The racecars drive at over 101 mph for 1001 minutes of pastetsap!"
     test("Check true recursive"){
         assert(recursive("racecar"))
     }
@@ -45,8 +45,8 @@ class TestPalindromes extends FunSuite {
     test("Cmp chars false"){
         assert(!cmpChars("at", 0, 1))
     }
-    test("Assert M C true special"){
-        assert(assertMirrorChars("at", 0))
+    test("Assert M C false special"){
+        assert(!assertMirrorChars("at", 0))
     }
     test("Assert M C true special2"){
         assert(assertMirrorChars("aa", 0))
@@ -57,6 +57,6 @@ class TestPalindromes extends FunSuite {
     }
 
     test("Search string iteration"){
-        assert(largestPalindrome(sent) == "racecar")
+        assert(largestPalindrome(sent) == "pastetsap")
     }
 }

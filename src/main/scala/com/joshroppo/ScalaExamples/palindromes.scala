@@ -16,9 +16,11 @@ object Palindromes{
 
     def assertMirrorChars(str: String, i: Int): Boolean = {
         println(str)
-        if(str.length <= 2){
-            val j = i + 1
+        if(str.length == 2){
+            val j = 1
             cmpChars(str, i, j)
+        }else if(str.length == 1) { 
+            return true 
         }else {
             val j = str.length - i - 1  
             cmpChars(str, i, j)
@@ -32,7 +34,7 @@ object Palindromes{
         //println(s"mid: $mid, len: $len")
         
         for( i <- 0 to mid){
-            if(i == mid){
+            if(i == mid && mid >= 2){
                 return true
             }else if(!assertMirrorChars(str, i)){
                 return false
@@ -44,7 +46,7 @@ object Palindromes{
     def largestPalindrome(str: String): String = {
         var largest: String = ""
         for(i <- 0 until str.length){
-            for(j <- i+1 until str.length-1 ){
+            for(j <- i+1 until str.length ){
                 val slice: String = str.slice(i, j)
                 if(assertMirrorChars(slice, 0) && enclosingIter(slice)){
                     println(s"Palindrome found: '$slice'")
