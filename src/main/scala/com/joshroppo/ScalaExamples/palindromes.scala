@@ -12,15 +12,24 @@ object Palindromes{
         }
     }
 
+    def cmpChars(str: String, i: Int, j: Int): Boolean = str.charAt(i) == str.charAt(j)
+
     def assertMirrorChars(str: String, i: Int): Boolean = {
-        val j = str.length - i - 1  
-        if (str.charAt(i) == str.charAt(j)) true else false
+        println(str)
+        if(str.length <= 2){
+            val j = i + 1
+            cmpChars(str, i, j)
+        }else {
+            val j = str.length - i - 1  
+            cmpChars(str, i, j)
+        }
     }
 
     def enclosingIter(str: String): Boolean = {
         val len = str.length - 1
         if(len <= 1) return false
         val mid: Int = len/2 
+        //println(s"mid: $mid, len: $len")
         
         for( i <- 0 to mid){
             if(i == mid){

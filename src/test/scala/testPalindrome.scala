@@ -9,7 +9,7 @@ import Palindromes._
 @RunWith(classOf[JUnitRunner])
 class TestPalindromes extends FunSuite {
     val checkTrue = Set("racecar", "101", "hihih")
-    val checkFalse = Set("racebuggy", "122", "hihii")
+    val checkFalse = Set("racebuggy", "122", "hihii", " at ")
     val sent = "The racecars drive at over 101 mph for 1001 minutes!"
     test("Check true recursive"){
         assert(recursive("racecar"))
@@ -39,8 +39,21 @@ class TestPalindromes extends FunSuite {
     test("Assert Mirrored Chars true"){
         checkTrue.foreach((s: String) => assert(assertMirrorChars(s, 0)))
     }
+    test("Cmp chars true"){
+        assert(cmpChars("aa", 0, 1))
+    }
+    test("Cmp chars false"){
+        assert(!cmpChars("at", 0, 1))
+    }
+    test("Assert M C true special"){
+        assert(assertMirrorChars("at", 0))
+    }
+    test("Assert M C true special2"){
+        assert(assertMirrorChars("aa", 0))
+    }
     test("Assert Not Mirrored chars"){
-        checkFalse.foreach((s: String) => assert(assertMirrorChars(s, 0) == false))
+        assert(assertMirrorChars("fat", 0) == false)
+        assert(assertMirrorChars("fsdfasdfasdfat", 0) == false)
     }
 
     test("Search string iteration"){
