@@ -11,6 +11,7 @@ class TestPalindromes extends FunSuite {
     val checkTrue = Set("racecar", "101", "hihih")
     val checkFalse = Set("racebuggy", "122", "hihii", " at ")
     val sent = "The racecars drive at over 101 mph for 1001 minutes of pastetsap!"
+
     test("Check true recursive"){
         assert(recursive("racecar"))
     }

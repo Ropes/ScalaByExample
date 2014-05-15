@@ -15,7 +15,6 @@ object Palindromes{
     def cmpChars(str: String, i: Int, j: Int): Boolean = str.charAt(i) == str.charAt(j)
 
     def assertMirrorChars(str: String, i: Int): Boolean = {
-        println(str)
         if(str.length == 2){
             val j = 1
             cmpChars(str, i, j)
@@ -31,7 +30,6 @@ object Palindromes{
         val len = str.length - 1
         if(len <= 1) return false
         val mid: Int = len/2 
-        //println(s"mid: $mid, len: $len")
         
         for( i <- 0 to mid){
             if(i == mid && mid >= 2){
@@ -49,7 +47,6 @@ object Palindromes{
             for(j <- i+1 until str.length ){
                 val slice: String = str.slice(i, j)
                 if(assertMirrorChars(slice, 0) && enclosingIter(slice)){
-                    println(s"Palindrome found: '$slice'")
                     if(slice.length > largest.length) largest = slice
                 }
             }
